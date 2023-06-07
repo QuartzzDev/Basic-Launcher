@@ -57,15 +57,12 @@ def refresh_app_buttons():
             app_path, app_name = app_entry.split(',')
             create_app_button(window, app_path, app_name)
 
-# Pencereyi oluştur
 window = tk.Tk()
 window.title("Quartzz Launcher V1")
 
-# Menü çubuğunu oluştur
 menu_bar = tk.Menu(window)
 window.config(menu=menu_bar)
 
-# Dosya menüsünü oluştur
 file_menu = tk.Menu(menu_bar, tearoff=0)
 menu_bar.add_cascade(label="Dosya", menu=file_menu)
 file_menu.add_command(label="Uygulama Ekle", command=open_file_dialog)
@@ -78,7 +75,6 @@ def show_about_dialog():
     about_label = tk.Label(about_window, text="Yapımcı: Quartzz#1535 - Qua Dev.")
     about_label.pack(padx=10, pady=10)
 
-# Kaydedilmiş uygulamaları yükle
 app_buttons = []
 with open('app_list.txt', 'r') as file:
     app_data = file.read().splitlines()
@@ -86,5 +82,4 @@ with open('app_list.txt', 'r') as file:
         app_path, app_name = app_entry.split(',')
         create_app_button(window, app_path, app_name)
 
-# Pencereyi göster
 window.mainloop()
